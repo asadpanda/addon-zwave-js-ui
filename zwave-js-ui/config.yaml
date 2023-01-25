@@ -3,8 +3,7 @@ name: Z-Wave JS UI
 version: dev
 slug: zwavejs2mqtt
 description: Fully configurable Z-Wave JS gateway and control panel
-url: https://github.com/hassio-addons/addon-zwave-js-ui
-codenotary: codenotary@frenck.dev
+url: https://github.com/asadpanda/addon-zwave-js-ui
 ingress: true
 ingress_stream: true
 panel_title: Z-Wave JS
@@ -23,7 +22,6 @@ services:
   - mqtt:want
 watchdog: http://[HOST]:[PORT:8099]/health/zwave
 uart: true
-udev: true
 map:
   - share:rw
 schema:
