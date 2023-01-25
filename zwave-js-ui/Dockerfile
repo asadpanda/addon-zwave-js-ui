@@ -20,16 +20,16 @@ RUN \
         nginx=1.22.1-r0 \
         nodejs=18.12.1-r0 \
     \
-    && npm install --global yarn@2.4.3 \
+    && npm install --global yarn@1.22.19 \
     \
     && curl -J -L -o /tmp/zwave-js-ui.tar.gz \
         "https://github.com/zwave-js/zwave-js-ui/archive/v8.8.0.tar.gz" \
     && tar zxvf \
         /tmp/zwave-js-ui.tar.gz \
-        --strip 1 -C /opt \
-    \
-    && cd /opt \
-    && yarn install --immutable \
+        --strip 1 -C /opt
+
+WORKDIR /opt
+RUN yarn install --immutable \
     && yarn run build:server \
     && yarn run build:ui \
     && npm_config_build_from_source=true \
